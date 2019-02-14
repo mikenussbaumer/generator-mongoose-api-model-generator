@@ -1,6 +1,6 @@
 {
   "name": "generator-mongoose-api-model-generator",
-  "version": "1.0",
+  "version": "0.0.1",
   "description": "Generate a mongoose api model easily",
   "homepage": "",
   "author": {

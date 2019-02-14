@@ -11,7 +11,7 @@
 'use strict';
 
 import jsonpatch from 'fast-json-patch';
-import <%= modelName %> from './<%= modelName %>.model';
+import <%= modelNameUp %> from './<%= modelName %>.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -66,14 +66,14 @@ function handleError(res, statusCode) {
 
 // Gets a list of <%= modelName %>s
 export function index(req, res) {
-  return <%= modelName %>.find().exec()
+  return <%= modelNameUp %>.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 // Gets a single <%= modelName %> from the DB
 export function show(req, res) {
-  return <%= modelName %>.findById(req.params.id).exec()
+  return <%= modelNameUp %>.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -81,7 +81,7 @@ export function show(req, res) {
 
 // Creates a new <%= modelName %> in the DB
 export function create(req, res) {
-  return <%= modelName %>.create(req.body)
+  return <%= modelNameUp %>.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
@@ -91,7 +91,7 @@ export function upsert(req, res) {
   if(req.body._id) {
     Reflect.deleteProperty(req.body, '_id');
   }
-  return <%= modelName %>.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+  return <%= modelNameUp %>.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
 
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -102,7 +102,7 @@ export function patch(req, res) {
   if(req.body._id) {
     Reflect.deleteProperty(req.body, '_id');
   }
-  return <%= modelName %>.findById(req.params.id).exec()
+  return <%= modelNameUp %>.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(patchUpdates(req.body))
     .then(respondWithResult(res))
@@ -111,7 +111,7 @@ export function patch(req, res) {
 
 // Deletes a <%= modelName %> from the DB
 export function destroy(req, res) {
-  return <%= modelName %>.findById(req.params.id).exec()
+  return <%= modelNameUp %>.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));

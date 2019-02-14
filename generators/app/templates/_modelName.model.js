@@ -11,4 +11,4 @@ var Schema = new mongoose.Schema({
 });
 
 registerEvents(Schema);
-export default mongoose.model('<%= modelName %>', Schema);
+export default mongoose.model('<%= modelNameUp %>', Schema);

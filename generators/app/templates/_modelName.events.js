@@ -17,10 +17,10 @@ var events = {
 };
 
 // Register the event emitter to the model events
-function registerEvents(<%= modelName %>) {
+function registerEvents(<%= modelNameUp %>) {
   for(var e in events) {
     let event = events[e];
-    <%= modelName %>.post(e, emitEvent(event));
+    <%= modelNameUp %>.post(e, emitEvent(event));
   }
 }
 

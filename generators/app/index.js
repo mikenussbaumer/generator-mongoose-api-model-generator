@@ -18,7 +18,7 @@ module.exports = class extends Generator {
       },
       {
         type: 'input',
-        name: 'modelNameUo',
+        name: 'modelNameUp',
         message: 'Name of the API Model for Object usage (User)',
         default: 'User'
       }

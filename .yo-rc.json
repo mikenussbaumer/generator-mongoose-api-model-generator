@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Mike Nußbaumer",
+      "authorEmail": "info@mike-nussbaumer.com",
+      "authorUrl": ""
+    }
+  }
+}
